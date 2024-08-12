@@ -2,36 +2,23 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>シフト希望収集フォーム</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シフト希望収集サイト</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>シフト希望フォーム</h1>
+    <h1>シフト希望を入力してください</h1>
     <form id="shiftForm">
-        <h2>従業員情報</h2>
         <label for="employeeName">従業員名:</label>
         <input type="text" id="employeeName" name="employeeName" required>
 
-        <h2>各日付ごとの出勤希望</h2>
-        <ul>
-            <li>
-                <label for="2024-08-01">2024-08-01:</label>
-                <select name="2024-08-01" id="2024-08-01">
-                    <option value="出勤">◯ 出勤</option>
-                    <option value="不出勤">☓ 不出勤</option>
-                    <option value="有給">有給</option>
-                </select>
-            </li>
-            <li>
-                <label for="2024-08-02">2024-08-02:</label>
-                <select name="2024-08-02" id="2024-08-02">
-                    <option value="出勤">◯ 出勤</option>
-                    <option value="不出勤">☓ 不出勤</option>
-                    <option value="有給">有給</option>
-                </select>
-            </li>
-            <!-- 同様に他の日付に対しても追加 -->
-        </ul>
+        <label for="maxDays">希望出勤上限日数:</label>
+        <input type="number" id="maxDays" name="maxDays" min="1" max="31" required>
+
+        <div id="dateSelectors">
+            <!-- JavaScriptで日付ごとの入力フィールドを挿入 -->
+        </div>
+
         <button type="submit">送信</button>
     </form>
     <script src="script.js"></script>
