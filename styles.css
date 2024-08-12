@@ -1,61 +1,42 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
     margin: 0;
     padding: 20px;
+    text-align: center;
 }
 
-h1 {
-    color: #ff69b4;
+h1, h2 {
+    color: #333;
 }
 
 form {
-    background: #fff;
+    background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: inline-block;
+    margin-top: 20px;
 }
 
-input[type="text"], input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+label {
+    margin-right: 10px;
+}
+
+select {
+    margin: 5px 10px;
 }
 
 button {
-    background-color: #ff69b4;
+    background-color: #007BFF;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 button:hover {
-    background-color: #ff85c1;
+    background-color: #0056b3;
 }
-このファイルを styles.css という名前で保存します。
-ステップ 4: JavaScriptファイルの作成
-テキストエディタを再び開きます。
-新しいファイルを作成し、以下のコードをコピーして貼り付けます。
-javascript
-コードをコピーする
-document.getElementById('shiftForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const employeeName = document.getElementById('employeeName').value;
-    const workDays = document.getElementById('workDays').value;
-    const shifts = Array.from(document.querySelectorAll('input[name="shiftType"]:checked'))
-                        .map(checkbox => checkbox.value);
-
-    console.log("従業員名:", employeeName);
-    console.log("希望シフト:", shifts);
-    console.log("希望出勤日数:", workDays);
-
-    // ここでデータをExcelに送信する処理を追加
-});
