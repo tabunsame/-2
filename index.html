@@ -2,48 +2,83 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>シフト希望収集サイト</title>
+    <title>シフト希望収集フォーム</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>シフト希望を入力してください</h1>
+    <h1>シフト希望フォーム</h1>
     <form id="shiftForm">
+        <h2>従業員情報</h2>
         <label for="employeeName">従業員名:</label>
         <input type="text" id="employeeName" name="employeeName" required>
 
-        <h2>希望するシフト</h2>
-        <label><input type="checkbox" name="shiftType" value="AM"> AM</label>
-        <label><input type="checkbox" name="shiftType" value="PM"> PM</label>
-        <label><input type="checkbox" name="shiftType" value="FULL"> FULL</label>
-        <label><input type="checkbox" name="shiftType" value="PMPP"> PMPP</label>
-
-        <h2>希望する出勤日数</h2>
-        <input type="number" id="workDays" name="workDays" min="1" required>
-
+        <h2>各日付ごとの出勤希望</h2>
+        <ul>
+            <li>
+                <label for="2024-08-01">2024-08-01:</label>
+                <select name="2024-08-01" id="2024-08-01">
+                    <option value="出勤">◯ 出勤</option>
+                    <option value="不出勤">☓ 不出勤</option>
+                    <option value="有給">有給</option>
+                </select>
+            </li>
+            <li>
+                <label for="2024-08-02">2024-08-02:</label>
+                <select name="2024-08-02" id="2024-08-02">
+                    <option value="出勤">◯ 出勤</option>
+                    <option value="不出勤">☓ 不出勤</option>
+                    <option value="有給">有給</option>
+                </select>
+            </li>
+            <!-- 同様に他の日付に対しても追加 -->
+        </ul>
         <button type="submit">送信</button>
     </form>
     <script src="script.js"></script>
 </body>
 </html>
-<h3>各日付ごとの出勤希望</h3>
-<p>各日に対して出勤希望を選択してください（「◯」出勤、「☓」不出勤、「有給」）。</p>
-<ul>
-  <li>
-    <label for="2024-08-01">2024-08-01:</label>
-    <select name="2024-08-01" id="2024-08-01">
-      <option value="出勤">◯ 出勤</option>
-      <option value="不出勤">☓ 不出勤</option>
-      <option value="有給">有給</option>
-    </select>
-  </li>
-  <li>
-    <label for="2024-08-02">2024-08-02:</label>
-    <select name="2024-08-02" id="2024-08-02">
-      <option value="出勤">◯ 出勤</option>
-      <option value="不出勤">☓ 不出勤</option>
-      <option value="有給">有給</option>
-    </select>
-  </li>
-  <!-- 同様に他の日付に対しても追加 -->
-</ul>
+CSS (styles.css)
+css
+コードをコピーする
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: inline-block;
+    margin-top: 20px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+select {
+    margin: 5px 10px;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
